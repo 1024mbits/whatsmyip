@@ -1,4 +1,4 @@
-![GitHub branch checks state](https://img.shields.io/github/checks-status/1024mbits/whatsmyip/main?style=flat-square)
+[![GitHub stars](https://img.shields.io/github/stars/1024mbits/whatsmyip?style=flat-square)](https://github.com/1024mbits/whatsmyip/stargazers)
 [![GitHub license](https://img.shields.io/github/license/1024mbits/whatsmyip?style=flat-square)](https://github.com/1024mbits/whatsmyip/blob/main/LICENSE.md)
 
 # Whats my IP
