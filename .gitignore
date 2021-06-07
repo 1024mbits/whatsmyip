@@ -27,6 +27,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Directory create by vscode
-.vscode
+.vscode/
 token.txt
