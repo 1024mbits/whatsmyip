@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="description" content="Free IP Geolocation API - lookup any IP address">
+    <meta name="keywords" content="ip, ip geolocation, geoip, geolocation, ip to location, my ip address, visitor localization">
+    <title>1024Mbits.com - Geolocation API</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link rel="icon" href="./favicon.ico">
+</head>
+
+<body class="body-scrolled navbar-scrolled header-scrolled" cz-shortcut-listen="true" style="">
+    <nav class="navbar navbar-expand-lg navbar-dark stick" data-navbar="fixed">
+        <div class="container">
+            <div class="navbar-left"><a class="navbar-brand" href="/"><img class="logo-dark" src="./logo-nuevo.png" alt="logo"></a></div>
+        </div>
+    </nav>
+    <header id="home" class="header">
+        <div class="container">
+            <div class="row align-items-center h-100">
+                <div class="col-lg-6">
+                    <h1 class="display-4"><strong>IP Geolocation</strong><br>Rápido, seguro, confiable</h1>
+                    <p class="lead mt-1">El servicio es completamente anónimo y gratuito</p>
+                    <p class="lead mt-1">No guardamos información alguna de ti</p>
+                </div>
+                <div class="col-md-6 mx-auto mb-0 rimg"><img src="./img/bg.jpeg" alt="..."></div>
+            </div>
+        </div>
+    </header>
+    <main class="main-content">
+        <section class="section bg-gray pt-3">
+            <div class="container" id="sc">
+                <header class="section-header mb-0">
+                    <h2 class="display-4">Esta es tu IP pública</h2>
+                </header>
+                <div class="row gap-y">
+                    <div class="col-md-8 mx-auto">
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group"><input spellcheck="false" autocomplete="off" class="form-control" name="ip" id="ipAddress" value="" readonly></div>
+                            </div>
+                            <div class="col-auto"><button class="btn btn-lg btn-primary" onclick="copyMyIp()">Copiar</button></div>
+                        </div>
+                    </div>
+                    <div id="mapOuter" class="col-md-12 mx-auto" style="display: block;">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section class="section-apf pt-3">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Algunas Preguntas Frecuentes</h2>
+                </header>
+                <div class="row gap-y">
+                    <div class="col-md-6 col-xl-4">
+                        <h5>How often do you update your database?</h5>
+                        <p>We update our database as soon as we have new information about an IP block. For each API request, you will always have the most accurate location data, without having to worry about updating a local database.</p>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <h5>Are you still going to be here next year? Can I use your API in production?</h5>
+                        <p>IP-API has been running since 2012 and we are now providing one of the most popular and reliable IP Geolocation API.</p>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <h5>Do I need an API key for the free endpoint?</h5>
+                        <p>We will never require an API key or registration and the API schema will not change.</p>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <h5>How many requests can I do?</h5>
+                        <p>Our endpoints are limited to 45 HTTP requests per minute from an IP address. If you go over this limit your requests will be throttled (<code>HTTP 429</code>) until your rate limit window is reset.<br>If you need unlimited queries, please see our <a href="https://members.ip-api.com/">pro service</a>.</p>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <h5>What is the average response time of the API?</h5>
+                        <p>With dedicated servers in US, EU and APAC, a network based on Anycast technology, and highly optimized software we achieve real response times of under 50 milliseconds in most parts of the world.</p>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <h5>Can I use your API on my commercial website?</h5>
+                        <p>We do not allow commercial use of the free endpoint. Please see our <a href="https://members.ip-api.com/">pro service</a> for SSL access, unlimited queries, usage statistics and commercial support.</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+    </main>
+    <script src="./js/app.js"></script>
+    <footer id="footer" class="footer py-6">
+        <div class="container">
+            <div class="row gap-y">
+                <div class="col-xl-4 order-md-last">
+                    <h6 class="mb-4"><strong>¿Tienes un proyecto?</strong></h6>
+                    <p>Ponte en contacto con nosotros y te asesoramos.</p><a class="btn btn-secondary" href="mailto:soporte@1024mbits.com">Contacto</a>
+                </div>
+                <div class="col-6 col-md-4 col-xl-2">
+                </div>
+                <div class="col-6 col-md-4 col-xl-2">
+                </div>
+                <div class="col-xl-4 order-md-first">
+                    <h6 class="mb-6"><img class="mt-2 footer-logo" src="./img/logo1024.png" alt="logo"></h6>
+                    <a class="ma" href="/legal" target="_blank">Legal</a><br>
+                    <a class="ma" href="https://www.1024mbits.com/" target="_blank">Visitia nuestra web</a><br>
+                    <small class="opacity-70">1024Mbits.com © All rights reserved.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
